@@ -1,0 +1,185 @@
+/* colors
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485 */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Lato', san-serif;
+	font-weight: 400;
+	font-size: 62.5%;
+	line-height: 1.7;
+	color: #777;
+	padding: 30px;
+	background-color: rgb(63, 20, 20);
+}
+
+.header {
+	height: 95vh;
+	background-image: linear-gradient(150deg, rgb(230, 44, 44, 0.7) 0%, rgb(182, 210, 68, 0.7) 100%),
+		url(../img/aerial-view-galata-tower-istanbul-city-turkey.jpg);
+	filter: drop-shadow(2);
+	background-size: cover;
+	background-position: top;
+	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+
+.title-page {
+	position: relative;
+}
+
+.title-page h1 {
+	position: absolute;
+	top: -3rem;
+	right: 3.5rem;
+	font-size: 4rem;
+	font-weight: 600;
+	z-index: 1;
+	color: rgb(142, 7, 184);
+	opacity: 0;
+	animation: opacityAnim 3s linear forwards 5.2s;
+}
+
+.title-page span {
+	position: absolute;
+	display: block;
+	top: 11rem;
+	right: 0;
+	font-size: 1rem;
+	color: white;
+	opacity: 0;
+	animation: opacityAnim 3s linear forwards 5.2s;
+}
+
+@keyframes opacityAnim {
+	to {
+		opacity: 1;
+	}
+}
+
+.title-page::before {
+	position: absolute;
+	content: '';
+	left: 0.2rem;
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: 50%;
+	background-color: rgb(142, 7, 184);
+	top: -50rem;
+	animation: dotAnim 2s ease-out forwards 6s, pingpong 2s ease-in-out infinite 7.5s;
+}
+
+@keyframes dotAnim {
+	from {
+		top: -50rem;
+	}
+
+	to {
+		top: 0rem;
+	}
+}
+
+@keyframes pingpong {
+	0% {
+	transform: translateY(0rem);
+	}
+	50% {
+	transform: translateY(-1rem);
+	}
+	100% {
+	transform: translateY(0rem);
+	}
+}
+
+.title {
+	width: 900px;
+	height: 200px;
+	fill: none;
+}
+
+.title path {
+	stroke: white;
+	stroke-width: 3;
+	mask: url(#path-1-outside-1_6_2);
+}
+
+.title path:nth-child(1) {
+	stroke-dasharray: 220;
+	stroke-dashoffset: 220;
+	animation: letterAnim 2s ease forwards, fill 0.5s ease forwards 2.3s;
+}
+
+.title path:nth-child(2) {
+	stroke-dasharray: 401;
+	stroke-dashoffset: 401;
+	animation: letterAnim 2s ease forwards 0.3s, fill 0.5s ease forwards 2.7s;
+}
+
+.title path:nth-child(3) {
+	stroke-dasharray: 331;
+	stroke-dashoffset: 331;
+	animation: letterAnim 2s ease forwards 0.6s, fill 0.5s ease forwards 3.1s;
+}
+.title path:nth-child(4) {
+	stroke-dasharray: 454;
+	stroke-dashoffset: 454;
+	animation: letterAnim 2s ease forwards 0.9s, fill 0.5s ease forwards 3.5s;
+}
+.title path:nth-child(5) {
+	stroke-dasharray: 533;
+	stroke-dashoffset: 533;
+	animation: letterAnim 2s ease forwards 1.2s, fill 0.5s ease forwards 3.9s;
+}
+.title path:nth-child(6) {
+	stroke-dasharray: 531;
+	stroke-dashoffset: 531;
+	animation: letterAnim 2s ease forwards 1.5s, fill 0.5s ease forwards 4.3s;
+}
+.title path:nth-child(7) {
+	stroke-dasharray: 449;
+	stroke-dashoffset: 449;
+	animation: letterAnim 2s ease forwards 1.8s, fill 0.5s ease forwards 4.7s;
+}
+
+.title path:nth-child(8) {
+	stroke-dasharray: 293;
+	stroke-dashoffset: 293;
+	animation: letterAnim 2s ease forwards 2.1s, fill 0.5s ease forwards 5.1s;
+}
+
+.logo-box {
+	position: absolute;
+	top: 2vh;
+	left: 2vw;
+	filter: brightness(10);
+}
+
+.logo-box img {
+	height: 20vh;
+}
+
+@keyframes letterAnim {
+	to {
+		stroke-dashoffset: 0;
+		/* stroke-dasharray: 20; */
+	}
+
+	to {
+		stroke-dashoffset: 0;
+		/* stroke-dasharray: 0; */
+	}
+}
+
+@keyframes fill {
+	to {
+		fill: rgb(255, 255, 255, 0.2);
+	}
+}
