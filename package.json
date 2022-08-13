@@ -1,0 +1,22 @@
+{
+	"name": "istanbul",
+	"version": "1.0.0",
+	"description": "Web page about Istanbul",
+	"main": "index.js",
+	"scripts": {
+		"compile:sass": "node-sass sass/main.scss css/style.css -w"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ingwai/Istanbul-webpage.git"
+	},
+	"author": "Ingwai (Marek Zapała)",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Ingwai/Istanbul-webpage/issues"
+	},
+	"homepage": "https://github.com/Ingwai/Istanbul-webpage#readme",
+	"devDependencies": {
+		"node-sass": "^7.0.1"
+	}
+}

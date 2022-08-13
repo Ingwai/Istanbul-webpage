@@ -1,4 +1,23 @@
-@charset "UTF-8";
+$color-main: rgb(142, 7, 184);
+$color-bg: rgb(63, 20, 20);
+$color-white: rgb(255, 255, 255);
+$color-grad1: rgb(230, 44, 44);
+$color-grad2: rgb(182, 210, 68);
+$font-main: 'Lato', san-serif;
+$gradient-main: linear-gradient(150deg, rgba($color-grad1, 0.7) 0%, rgba($color-grad2, 0.7) 100%);
+
+@mixin positionCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin headerTitlePath($lineLenght, $delayAnimTime, $delayFillTime) {
+	stroke-dasharray: $lineLenght;
+	stroke-dashoffset: $lineLenght;
+	animation: letterAnim 2s ease forwards $delayAnimTime, fill 0.5s ease forwards $delayFillTime;
+}
+
 *,
 *::after,
 *::before {
@@ -12,11 +31,11 @@ html {
 }
 
 body {
-	font-family: 'Lato', san-serif;
+	font-family: $font-main;
 	font-weight: 400;
 	line-height: 1.7;
 	padding: 3rem;
-	background-color: #3f1414;
+	background-color: $color-bg;
 	box-sizing: border-box;
 }
 
@@ -24,9 +43,7 @@ body {
 	height: 95vh;
 	filter: drop-shadow(2);
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include positionCenter;
 }
 
 .header__bg-2,
@@ -36,8 +53,7 @@ body {
 	background-size: cover;
 	background-position: top;
 	position: absolute;
-	background-image: linear-gradient(150deg, rgba(230, 44, 44, 0.7) 0%, rgba(182, 210, 68, 0.7) 100%),
-		url(../img/Istambul-hero.jpg);
+	background-image: $gradient-main, url(../img/Istambul-hero.jpg);
 	/* Photo by Ibrahim Uzun on Unsplash */
 	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 	z-index: 1;
@@ -45,8 +61,7 @@ body {
 }
 
 .header__bg-1 {
-	background-image: linear-gradient(150deg, rgba(230, 44, 44, 0.7) 0%, rgba(182, 210, 68, 0.7) 100%),
-		url(../img/aerial-view-galata-tower-istanbul-city-turkey.jpg);
+	background-image: $gradient-main, url(../img/aerial-view-galata-tower-istanbul-city-turkey.jpg);
 	/* Istanbul city photo created by tawatchai07 - www.freepik.com */
 	z-index: 5;
 }
@@ -56,9 +71,7 @@ body {
 }
 
 .header__title-page {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include positionCenter;
 	position: relative;
 	flex-direction: column;
 	z-index: 10;
@@ -71,7 +84,7 @@ body {
 	font-size: 4.7rem;
 	font-weight: 700;
 	z-index: 4;
-	color: #8e07b8;
+	color: $color-main;
 	opacity: 0;
 	animation: opacityAnimH1 3s linear forwards 5.2s;
 }
@@ -90,7 +103,7 @@ body {
 	width: 2.5rem;
 	height: 2.5rem;
 	border-radius: 50%;
-	background-color: #8e07b8;
+	background-color: $color-main;
 	top: -50rem;
 	opacity: 0;
 	animation: dotAnim 2s ease-out forwards 6s, dotpingpong 2s ease-in-out infinite 7.5s;
@@ -101,6 +114,7 @@ body {
 		opacity: 1;
 		top: -50rem;
 	}
+
 	to {
 		opacity: 1;
 		top: 0rem;
@@ -126,49 +140,40 @@ body {
 }
 
 .header__title path {
-	stroke: white;
+	stroke: $color-white;
 	stroke-width: 3;
 	mask: url(#path-1-outside-1_6_2);
-}
-.header__title path:nth-child(1) {
-	stroke-dasharray: 220;
-	stroke-dashoffset: 220;
-	animation: letterAnim 2s ease forwards 0s, fill 0.5s ease forwards 2.3s;
-}
-.header__title path:nth-child(2) {
-	stroke-dasharray: 401;
-	stroke-dashoffset: 401;
-	animation: letterAnim 2s ease forwards 0.3s, fill 0.5s ease forwards 2.7s;
-}
-.header__title path:nth-child(3) {
-	stroke-dasharray: 331;
-	stroke-dashoffset: 331;
-	animation: letterAnim 2s ease forwards 0.6s, fill 0.5s ease forwards 3.1s;
-}
-.header__title path:nth-child(4) {
-	stroke-dasharray: 454;
-	stroke-dashoffset: 454;
-	animation: letterAnim 2s ease forwards 0.9s, fill 0.5s ease forwards 3.5s;
-}
-.header__title path:nth-child(5) {
-	stroke-dasharray: 533;
-	stroke-dashoffset: 533;
-	animation: letterAnim 2s ease forwards 1.2s, fill 0.5s ease forwards 3.9s;
-}
-.header__title path:nth-child(6) {
-	stroke-dasharray: 531;
-	stroke-dashoffset: 531;
-	animation: letterAnim 2s ease forwards 1.5s, fill 0.5s ease forwards 4.3s;
-}
-.header__title path:nth-child(7) {
-	stroke-dasharray: 449;
-	stroke-dashoffset: 449;
-	animation: letterAnim 2s ease forwards 1.8s, fill 0.5s ease forwards 4.7s;
-}
-.header__title path:nth-child(8) {
-	stroke-dasharray: 293;
-	stroke-dashoffset: 293;
-	animation: letterAnim 2s ease forwards 2.1s, fill 0.5s ease forwards 5.1s;
+
+	&:nth-child(1) {
+		@include headerTitlePath(220, 0s, 2.3s);
+	}
+	&:nth-child(2) {
+		@include headerTitlePath(401, 0.3s, 2.7s);
+	}
+
+	&:nth-child(3) {
+		@include headerTitlePath(331, 0.6s, 3.1s);
+	}
+
+	&:nth-child(4) {
+		@include headerTitlePath(454, 0.9s, 3.5s);
+	}
+
+	&:nth-child(5) {
+		@include headerTitlePath(533, 1.2s, 3.9s);
+	}
+
+	&:nth-child(6) {
+		@include headerTitlePath(531, 1.5s, 4.3s);
+	}
+
+	&:nth-child(7) {
+		@include headerTitlePath(449, 1.8s, 4.7s);
+	}
+
+	&:nth-child(8) {
+		@include headerTitlePath(293, 2.1s, 5.1s);
+	}
 }
 
 .header__logo-box {
@@ -193,6 +198,7 @@ body {
 		stroke-dashoffset: 0;
 		/* stroke-dasharray: 20; */
 	}
+
 	to {
 		stroke-dashoffset: 0;
 		/* stroke-dasharray: 0; */
@@ -201,7 +207,7 @@ body {
 
 @keyframes fill {
 	to {
-		fill: rgba(255, 255, 255, 0.2);
+		fill: rgba($color-white, 0.2);
 	}
 }
 
@@ -214,10 +220,10 @@ body {
 }
 
 .btn:hover {
-	color: #8e07b8;
-	background-color: rgba(255, 255, 255, 0.6);
+	color: $color-main;
+	background-color: rgba($color-white, 0.6);
 	letter-spacing: 0.2rem;
-	box-shadow: 0 0.6rem 1.2rem rgba(142, 7, 184, 0.3);
+	box-shadow: 0 0.6rem 1.2rem rgba($color-main, 0.3);
 }
 
 .btn:link,
@@ -232,15 +238,15 @@ body {
 
 .btn:active {
 	box-shadow: 0 0.2rem 0.3rem rgba(141, 4, 146, 0.3);
-	background-color: rgba(142, 7, 184, 0.4);
-	color: white;
+	background-color: rgba($color-main, 0.4);
+	color: $color-white;
 }
 
 .btn--white {
 	color: #fff;
 	backdrop-filter: blur(2px);
 	opacity: 0;
-	border: 0.15rem outset #8e07b8;
+	border: 0.15rem outset $color-main;
 }
 
 .btn--animated {
@@ -266,7 +272,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: -1;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba($color-white, 0.3);
 	transition: all 0.4s;
 }
 
