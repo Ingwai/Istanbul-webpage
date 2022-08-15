@@ -1,0 +1,110 @@
+.header {
+	height: 95vh;
+	filter: drop-shadow(2);
+	position: relative;
+	@include positionCenter;
+
+	&__bg-2,
+	&__bg-1 {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: top;
+		position: absolute;
+		background-image: $gradient-main, url(../img/Istambul-hero.jpg);
+		/* Photo by Ibrahim Uzun on Unsplash */
+		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+		z-index: 1;
+		opacity: 1;
+	}
+
+	&__bg-1 {
+		background-image: $gradient-main, url(../img/aerial-view-galata-tower-istanbul-city-turkey.jpg);
+		/* Istanbul city photo created by tawatchai07 - www.freepik.com */
+		z-index: 5;
+	}
+
+	&__bg-opacity {
+		opacity: 0;
+	}
+
+	&__title-page {
+		@include positionCenter;
+		position: relative;
+		flex-direction: column;
+		z-index: 10;
+	}
+
+	&__title-page::before {
+		position: absolute;
+		content: '';
+		left: 0.3rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		background-color: $color-main;
+		top: -50rem;
+		opacity: 0;
+		animation: dotAnim 2s ease-out forwards 6s, dotpingpong 2s ease-in-out infinite 7.5s;
+	}
+
+	&__title {
+		width: 90rem;
+		height: 20rem;
+		fill: none;
+	}
+
+	&__title path {
+		stroke: $color-white;
+		stroke-width: 3;
+		mask: url(#path-1-outside-1_6_2);
+
+		&:nth-child(1) {
+			@include headerTitlePath(220, 0s, 2.3s);
+		}
+		&:nth-child(2) {
+			@include headerTitlePath(401, 0.3s, 2.7s);
+		}
+
+		&:nth-child(3) {
+			@include headerTitlePath(331, 0.6s, 3.1s);
+		}
+
+		&:nth-child(4) {
+			@include headerTitlePath(454, 0.9s, 3.5s);
+		}
+
+		&:nth-child(5) {
+			@include headerTitlePath(533, 1.2s, 3.9s);
+		}
+
+		&:nth-child(6) {
+			@include headerTitlePath(531, 1.5s, 4.3s);
+		}
+
+		&:nth-child(7) {
+			@include headerTitlePath(449, 1.8s, 4.7s);
+		}
+
+		&:nth-child(8) {
+			@include headerTitlePath(293, 2.1s, 5.1s);
+		}
+	}
+
+	&__logo-box {
+		position: absolute;
+		top: 2vh;
+		left: 2vw;
+		filter: brightness(10);
+		z-index: 10;
+	}
+
+	&__logo-box &__logo {
+		height: 15vh;
+		transition: height 0.6s;
+
+		&:hover {
+			height: 20vh;
+		}
+	}
+}
