@@ -16,6 +16,17 @@
 			opacity: 0;
 		}
 	}
+	&-submit {
+		transform: translateY(0rem);
+		text-transform: uppercase;
+		padding: 1rem 2.5rem;
+		border-radius: 3rem;
+		transition: all 0.3s;
+		position: relative;
+		color: $color-main;
+		border: 0.3rem outset $color-main-light;
+		cursor: pointer;
+	}
 
 	&:link,
 	&:visited {
@@ -85,7 +96,7 @@
 		height: 2rem;
 		position: absolute;
 		right: 0.5rem;
-		top: calc(50% - 0.8rem);
+		top: calc(50% - 1rem);
 	}
 
 	&:hover {

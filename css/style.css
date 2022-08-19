@@ -61,7 +61,8 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   background: #cf7be9;
@@ -164,6 +165,16 @@ body {
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.7);
       opacity: 0; }
+  .btn-submit {
+    transform: translateY(0rem);
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
+    transition: all 0.3s;
+    position: relative;
+    color: #8e07b8;
+    border: 0.3rem outset #cf7be9;
+    cursor: pointer; }
   .btn:link, .btn:visited {
     text-decoration: none;
     text-transform: uppercase;
@@ -217,7 +228,7 @@ body {
   height: 2rem;
   position: absolute;
   right: 0.5rem;
-  top: calc(50% - 0.8rem); }
+  top: calc(50% - 1rem); }
 
 .btn-text:hover {
   background-color: #cf7be9;
@@ -389,6 +400,86 @@ body {
     color: transparent; }
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.2); }
+
+.form__group:not(:last-child) {
+  margin-bottom: 1rem; }
+
+.form__input {
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 80%;
+  display: block;
+  transition: all 0.4s; }
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #8e07b8; }
+  .form__input:focus:invalid {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-bottom: 3px solid red; }
+  .form__input::input-placeholder {
+    color: #999; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.4s; }
+
+.form__input:placeholder-shown + .form__label {
+  font-size: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 38%;
+  display: inline-block;
+  margin-right: 2rem; }
+
+.form__radio-input {
+  visibility: hidden; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 1.5rem; }
+
+.form__radio-button::before {
+  content: '';
+  height: 3rem;
+  width: 3rem;
+  border: 3px ridge #cf7be9;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: -2.33rem;
+  top: -0.55rem; }
+
+.form__radio-button::after {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  height: 1.3rem;
+  width: 1.3rem;
+  position: absolute;
+  top: 0.3rem;
+  left: -1.48rem;
+  background-color: rgba(142, 7, 184, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .story {
   width: 75%;
@@ -578,3 +669,18 @@ body {
   background-color: white;
   position: relative;
   padding: 15rem 0; }
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, #cf7be9, #8e07b8), url(../img/logo.png); }
+
+.book {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../img/ista-12.jpg);
+  background-size: 100%;
+  background-position: center;
+  height: 55rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  .book__form {
+    width: 60%;
+    padding: 6rem; }
