@@ -1,0 +1,61 @@
+.footer {
+	background-color: $color-grey-dark-3;
+	padding: 5rem;
+
+	&__logo {
+		width: 30rem;
+		height: auto;
+		filter: brightness(2);
+
+		&:hover {
+			filter: saturate(2);
+		}
+	}
+
+	&__navigation {
+		border-top: 1px solid $color-main-light;
+        padding-top: 5rem;
+      
+	}
+
+	&__list {
+        list-style: none;
+		font-size: 2rem;
+		text-transform: uppercase;
+	}
+
+	&__item {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 10rem;
+		}
+	}
+
+	&__link {
+		&::before {
+			content: '';
+			top: 0;
+			left: 0;
+			width: 4.2rem;
+			height: 2rem;
+			background-color: $color-white;
+		}
+		&:link,
+		&:visited {
+            letter-spacing: 0.05rem;
+			text-decoration: none;
+			color: $color-white;
+			transition: all 0.4s;
+		}
+
+		&:hover,
+		&:active {
+			color: $color-main-light;
+			letter-spacing: 0.1rem;
+			text-shadow: 0.2rem 0.2rem 0.6rem rgba($color-black, 0.4);
+			border-left: 2px solid $color-white;
+			border-right: 2px solid $color-white;
+			box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+		}
+	}
+}
