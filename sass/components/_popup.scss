@@ -1,0 +1,85 @@
+.popup {
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: rgba($color-black, 0.8);
+	z-index: 300;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s;
+
+	&__content {
+		@include verticalHorizontalCenter;
+		width: 65%;
+		height: 50rem;
+		background-color: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+		border-radius: 2rem;
+		overflow: hidden;
+		display: table;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.3);
+		transition: all 0.5s 0.3s;
+	}
+
+	&__left {
+		overflow: hidden;
+		width: 30%;
+		display: table;
+	}
+
+	&__img {
+		display: block;
+		height: 25.5rem;
+		width: auto;
+		display: table-cell;
+	}
+
+	&__right {
+		padding: 0 8rem;
+		width: 70%;
+		vertical-align: middle;
+		display: table-cell;
+	}
+
+	&__text {
+		column-count: 2;
+		column-gap: 10rem;
+		column-rule: 2px solid $color-main-light; //linia pomiędzy kolumnami
+		hyphens: auto; //dzielenie wyrazów
+	}
+
+	//Open states
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&:target &__content {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	&__close {
+		&:link,
+		&:visited {
+			color: $color-main;
+			position: absolute;
+			top: 2.5rem;
+			right: 2.5rem;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 3rem;
+			transition: all 0.3s;
+			line-height: 1;
+		}
+
+		&:hover,
+		&:active {
+			color: $color-main-light;
+			transform: scale(1.4);
+		}
+	}
+}
