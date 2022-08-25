@@ -1,7 +1,18 @@
 @keyframes opacityAnimH1 {
 	to {
-		right: 3.5rem;
+		right: 5.4rem;
 		opacity: 1;
+	}
+
+}
+
+@include respond(phone) {
+	@keyframes opacityAnimH1 {
+		to {
+			right: 3rem;
+			opacity: 1;
+		}
+	
 	}
 }
 
@@ -22,7 +33,7 @@
 		transform: translateY(0rem);
 	}
 	50% {
-		transform: translateY(-2rem);
+		transform: translateY(-3rem);
 	}
 	100% {
 		transform: translateY(0rem);

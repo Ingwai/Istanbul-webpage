@@ -20,8 +20,16 @@
 
 .util-margin-bottom-medium {
 	margin-bottom: 4rem;
+
+	@include respond(tab-port) {
+		margin-top: 2.5rem;
+	}
 }
 
 .util-margin-bottom-big {
 	margin-bottom: 8rem;
+
+	@include respond(tab-port) {
+		margin-top: 5rem;
+	}
 }

@@ -2,14 +2,24 @@
 	width: 75%;
 	margin: 0 auto;
 	box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
-	background-color: rgba($color-white, .5);
+	background-color: rgba($color-white, 0.5);
 	border-radius: 0.3rem;
 	padding: 6rem;
 	font-size: $default-font-size;
-    transform: skewX(-12deg);
-        
+	transform: skewX(-12deg);
+
+	@include respond(tab-port) {
+		width: 100%;
+		transform: skewX(0deg);
+		padding: 4rem;
+	}
+
 	& > * {
 		transform: skewX(12deg);
+		@include respond(tab-port) {
+			width: 100%;
+			transform: skewX(0deg);
+		}
 	}
 
 	&__shape {
@@ -20,6 +30,18 @@
 		shape-outside: circle(50% at 50% 50%);
 		clip-path: circle(50% at 50% 50%);
 		margin-right: 4rem;
+
+		@include respond(tab-port) {
+			float: none;
+			margin: 0rem 0rem 4rem 5rem;
+		}
+
+		@include respond(phone) {
+			float: none;
+			width: 20rem;
+			height: 20rem;
+			margin: 0rem 0rem 4rem 0rem;
+		}
 	}
 
 	&__img {

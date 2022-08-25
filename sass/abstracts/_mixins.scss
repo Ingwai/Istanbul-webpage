@@ -12,11 +12,10 @@
 
 @mixin verticalHorizontalCenter {
 	position: absolute;
-	top:50%;
+	top: 50%;
 	left: 50%;
-	transform:translate(-50%, -50%)
+	transform: translate(-50%, -50%);
 }
-
 
 // GRID
 @mixin clearfix {
@@ -27,4 +26,50 @@
 	}
 }
 
+//MEDIA QUERY MANAGER
 
+/*
+0 - 600px: 			Phone 
+600 - 900px:		Tablet
+900 - 1200px:		Tablet landscape
+[1200 - 1800px]:	Our normal style apply
+1800px + :			Big desktop
+
+$breakpoint argument choice:
+- phone  
+- tab-port
+- tab-land
+- big-desktop
+1em = 16px / gdy użytkowni zmieni czcionkę w przeglądarce o automatycznie zmieni się definicja 1 ema
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+
+*/
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		//600 px : 16px = 37.5em
+		@media (max-width: 37em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-port {
+		//900 px : 16px = 56.25em
+		@media (max-width: 56.25em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		//1200 px : 16px = 75em
+		@media (max-width: 75em) {
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		//1800 px : 16px = 112.5em
+		@media (min-width: 112.5em) {
+			@content;
+		}
+	}
+}
