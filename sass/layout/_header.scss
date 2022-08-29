@@ -11,11 +11,19 @@
 		background-size: cover;
 		background-position: top;
 		position: absolute;
-		background-image: $gradient-main, url(../img/Istambul-hero.jpg);
+		background-image: $gradient-main, url(../img/Istambul-hero-small.jpg);
 		/* Photo by Ibrahim Uzun on Unsplash */
 		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 		z-index: 1;
 		opacity: 1;
+
+		@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+			only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+			only screen and (min-width: 125em) {
+			// 600/16 = 37.5em, 2000/16=125em
+			//dla wyświetlaczy Retina jeśli rozdzielczość większa od 192dpi to większy obrazek załaduj jeśli mniejsza rozdzielczość to mniejszy
+			background-image: $gradient-main, url(../img/Istambul-hero.jpg);
+		}
 
 		@include respond(tab-land) {
 			clip-path: polygon(0 0, 100% 0, 100% 87vh, 0 100%);
@@ -26,9 +34,15 @@
 	}
 
 	&__bg-1 {
-		background-image: $gradient-main, url(../img/aerial-view-galata-tower-istanbul-city-turkey.jpg);
+		background-image: $gradient-main, url(../img/galata-small.jpg);
 		/* Istanbul city photo created by tawatchai07 - www.freepik.com */
 		z-index: 5;
+
+		@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+			(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+			//dla wyświetlaczy Retina jeśli rozdzielczość większa od 192dpi to większy obrazek załaduj jeśli mniejsza rozdzielczość to mniejszy
+			background-image: $gradient-main, url(../img/galata.jpg);
+		}
 	}
 
 	&__bg-opacity {

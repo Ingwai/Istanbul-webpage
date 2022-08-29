@@ -100,12 +100,24 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/ista-1-large.jpg" alt="Photo 1"
+                            <img srcset="img/ista-1.jpg 300w, img/ista-1-large.jpg 1000w"
+                                sizes="(max-width:56.25em) 20vw, (max-width: 37.5em) 30vw, 1000px" alt="Photo1"
+                                class="composition__photo composition__photo--p1" src="img/ista-1-large.jpg">
+
+                            <img srcset="img/ista-2.jpg 300w, img/ista-2-large.jpg 1000w"
+                                sizes="(max-width:56.25em) 20vw, (max-width: 37.5em) 30vw, 1000px" alt="Photo2"
+                                class="composition__photo composition__photo--p2" src="img/ista-2-large.jpg">
+
+                            <img srcset="img/ista-3.jpg 300w, img/ista-3-large.jpg 1000w"
+                                sizes="(max-width:56.25em) 20vw, (max-width: 37.5em) 30vw, 1000px" alt="Photo3"
+                                class="composition__photo composition__photo--p3" src="img/ista-3-large.jpg">
+
+                            <!-- <img src="img/ista-1-large.jpg" alt="Photo 1"
                                 class="composition__photo composition__photo--p1">
                             <img src="img/ista-2-large.jpg" alt="Photo 2"
                                 class="composition__photo composition__photo--p2">
                             <img src="img/ista-3-large.jpg " alt="Photo 3"
-                                class="composition__photo composition__photo--p3">
+                                class="composition__photo composition__photo--p3"> -->
                         </div>
 
                     </div>
@@ -395,7 +407,12 @@
 
     <footer class="footer">
         <div class="footer__logo-box util-center-text">
-            <img src="img/logo1.png" alt="Logo" class="footer__logo util-margin-bottom-medium">
+            <picture class="footer__logo-box util-center-text">
+                <source srcset="img/logo1_small.png 1x, img/logo1.png 2x" media="(max-width:37.5em)">
+                <img srcset="img/logo1_small.png 1x, img/logo1.png 2x" alt="Logo" src="img/logo1.png 2x"
+                    class="footer__logo util-margin-bottom-medium">
+            </picture>
+
         </div>
         <div class="footer__navigation util-center-text util-margin-bottom-small">
             <ul class="footer__list">
@@ -410,6 +427,8 @@
                 created by tawatchai07 — www.freepik.com"</p>
             <p class="footer__copyright-text">
                 View of the mosque — copyright "Photo by Ibrahim Uzun on Unsplash"</p>
+            <p class="footer__copyright-text">
+                Video in background - Rc-Aero-Tech from Pixabay</p>
         </div>
     </footer>
 
