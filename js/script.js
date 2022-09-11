@@ -1,4 +1,10 @@
 const title = document.querySelectorAll('.title path');
+const navigation = document.querySelector('.navigation__nav');
+const checked = document.querySelector('.navigation__checkbox');
+
+navigation.addEventListener('click', () => {
+		checked.checked = false;
+});
 
 title.forEach((letter, index) => console.log(`letter of ${index} is ${letter.getTotalLength()}`));
 
